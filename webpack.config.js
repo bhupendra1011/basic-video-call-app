@@ -6,7 +6,9 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
     target: "web",
     mode: "development",
-    entry: './src/index.js',
+    entry: {
+        main: path.resolve(__dirname, './src/index.js')
+    },
     plugins: [
         new HtmlWebpackPlugin({
             title: "My App",
@@ -18,6 +20,7 @@ module.exports = {
             jQuery: "jquery",
         }),
         new MiniCssExtractPlugin(),
+
     ],
     module: {
         rules: [
@@ -38,12 +41,13 @@ module.exports = {
     devtool: "inline-source-map",
     devServer: {
         historyApiFallback: true,
+
         static: "./dist",
         open: true,
-
         compress: true,
         port: 9001,
-        hot: true,
+        hot: false, // optional, but you must not set both hot and liveReload to true
+        liveReload: true
 
     },
 };

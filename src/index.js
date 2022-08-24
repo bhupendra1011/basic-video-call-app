@@ -1,1 +1,1 @@
-module.hot.accept();
+console.log("Hello World - Agora Video Web SDK")
