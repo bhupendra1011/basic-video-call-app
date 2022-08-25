@@ -1,0 +1,31 @@
+html {
+    background-color: bisque;
+}
+
+.border > div {
+    border:2px solid skyblue;
+    border-radius: 12px;
+}
+
+.localUser {
+    width: 400px;
+    aspect-ratio: 16/9;
+    margin: 20px auto
+    
+}
+
+.remoteUser {
+    width: 400px;
+    margin:20px;
+    aspect-ratio: 16/9;
+}
+
+.row {
+    display: flex;
+}
+
+.remoteUsers {
+    border-top: 1px dotted gray;
+    justify-content: center;
+    flex-wrap: wrap;
+}
