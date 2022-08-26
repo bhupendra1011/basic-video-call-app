@@ -10,7 +10,9 @@ html {
 .localUser {
     width: 400px;
     aspect-ratio: 16/9;
-    margin: 20px auto
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
     
 }
 
@@ -23,9 +25,25 @@ html {
 .row {
     display: flex;
 }
-
+.controls {
+    justify-content: space-evenly;
+    order:1;
+    padding: 5px;
+    margin-top:5px;
+    border:none 
+}
 .remoteUsers {
     border-top: 1px dotted gray;
     justify-content: center;
     flex-wrap: wrap;
+}
+.hidden {
+    display: none;
+}
+.icon {
+    cursor: pointer;
+}
+.icon:hover{
+   color:rgb(172, 159, 15);
+    transition: all ease-in-out 200ms;
 }
