@@ -2,7 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const appInitialState = {
     videoMuted: false,
-    audioMuted: false
+    audioMuted: false,
+    callActive: true,
+    userCount: 1,
 }
 
 const appSlice = createSlice({
@@ -15,10 +17,18 @@ const appSlice = createSlice({
         },
         toggleAudioMute(state, action) {
             state.audioMuted = !state.audioMuted
-
+        },
+        callEnd(state, action) {
+            state.callActive = false
+        },
+        increaseUserCount(state, action) {
+            state.userCount++;
+        },
+        decreaseUserCount(state, action) {
+            state.userCount--;
         }
     }
 
 })
-export const { toggleAudioMute, toggleVideoMute } = appSlice.actions
+export const { toggleAudioMute, toggleVideoMute, callEnd, increaseUserCount, decreaseUserCount } = appSlice.actions
 export default appSlice.reducer

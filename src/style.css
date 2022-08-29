@@ -13,6 +13,7 @@ html {
     margin: 20px auto;
     display: flex;
     flex-direction: column;
+    position: relative;
     
 }
 
@@ -20,6 +21,7 @@ html {
     width: 400px;
     margin:20px;
     aspect-ratio: 16/9;
+    position: relative;
 }
 
 .row {
@@ -32,6 +34,7 @@ html {
     margin-top:5px;
     border:none 
 }
+
 .remoteUsers {
     border-top: 1px dotted gray;
     justify-content: center;
@@ -42,8 +45,24 @@ html {
 }
 .icon {
     cursor: pointer;
+    width: 22px !important;
 }
 .icon:hover{
    color:rgb(172, 159, 15);
     transition: all ease-in-out 200ms;
+}
+
+.toast-close {
+    color: #1b1b1b !important
+}
+
+.userInfo {
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    z-index: 3;
+    color: white;
+    background: gray;
+    padding: 2px;
+    border-radius: 6px;
 }
