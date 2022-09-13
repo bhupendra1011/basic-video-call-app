@@ -2,6 +2,46 @@ html {
     background-color: bisque;
 }
 
+
+.side-bar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    z-index: 4;
+    width: 300px;
+    height: 100%;
+    padding: .5rem 1rem;
+    box-shadow: 0 6px 12px rgba(107, 82, 82, 0.3);
+    background-color: rgb(210 191 191);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: ease 0.2s all;
+}
+.btnSetting {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right:20px
+}
+#closeSettings {
+    position: absolute;
+    right:15px
+
+}
+.btnSetting #openSettings {
+    margin-right:5px
+    
+}
+
+body.menu-open #body-overlay {
+    display: block;
+}
+
+body.menu-open .side-bar {
+    right: 0;
+}
+
 .border > div {
     border:2px solid skyblue;
     border-radius: 12px;

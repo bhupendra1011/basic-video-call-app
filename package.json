@@ -14,6 +14,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "agora-rtc-sdk-ng": "^4.13.0",
+    "agora-rtm-sdk": "^1.5.0",
     "toastify-js": "^1.12.0"
   },
   "devDependencies": {

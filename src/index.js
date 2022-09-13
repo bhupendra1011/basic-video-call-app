@@ -15,6 +15,8 @@ const video = document.querySelector("#video");
 const videoOff = document.querySelector("#video-off");
 const callOff = document.querySelector("#call-off");
 const share = document.querySelector("#share")
+const openSideBar = document.querySelector("#open-menu")
+const closeSideBar = document.querySelector("#closeSettings")
 
 
 const appID = '392bdd4cf5da44db84328a29d247b405' // appID from console
@@ -32,9 +34,22 @@ const toastNotifyConfig = {
     },
 }
 
+/**
+ * It Toggles side bar ( messages , settings etc..)
+ */
+function toggleMenu() {
+    var ele = document.getElementsByTagName("body")[0];
+    if (!ele.classList.contains("menu-open")) {
+        ele.classList.add("menu-open");
+    } else {
+        ele.classList.remove("menu-open");
+    }
+}
+
 
 window.onload = () => {
     const params = new URLSearchParams(window.location.search)
+
     if (params.has('channelName')) {
         channelName = params.get('channelName');
         init();
@@ -136,6 +151,8 @@ const addControlEvents = () => {
     videoOff.addEventListener('click', handleToggleVideo, false);
     callOff.addEventListener('click', handleCallEnd, false);
     share.addEventListener('click', handleShare, false)
+    openSideBar.addEventListener("click", toggleMenu, false);
+    closeSideBar.addEventListener("click", toggleMenu, false)
 
 }
 

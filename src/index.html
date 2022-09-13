@@ -6,14 +6,18 @@
     <script src="https://unpkg.com/feather-icons"></script>  
 </head>
   <body>
+    <div id="body-overlay"></div>
+    <nav class="side-bar">
+      <i id="closeSettings"  data-feather="x-circle"></i>
+      Side Panel
+    </nav>
+    <button class="btnSetting" id="open-menu">    <i id="openSettings" class="icon"  data-feather="settings"></i>Open Settings</button>
     <h2 class="left-align">Agora RTC Web SDK - Demo</h2>
     <h3 class="row"> Meeting Room : <strong id="meetingName">  Not Selected </strong> &nbsp;<i id="refresh" class="icon" onclick="window.location.reload()" data-feather="refresh-cw"></i> </h3>
     <h3  class="row"> # Users : <strong id="usersCount">    </strong></h3>
     <h3  class="row"> Meeting Invite: <i id="share" class="icon disabled" disabled data-feather="share-2"></i></h3>
 
     <span>Local User:</span>
-   
-   
     
     <div>
       
