@@ -1,4 +1,4 @@
-import "./style.css";
+// import "./style.css";
 import AgoraRTC from "agora-rtc-sdk-ng";
 import { store as appStore, store } from "./store"
 import { toggleAudioMute, toggleVideoMute, callEnd, increaseUserCount, decreaseUserCount } from "./reducer"

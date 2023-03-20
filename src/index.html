@@ -4,6 +4,116 @@
     <meta charset="UTF-8" />
     <title>Agora Video Web SDK Quickstart </title>
     <script src="https://unpkg.com/feather-icons"></script>  
+    <style>
+      html {
+    background-color: bisque;
+}
+
+
+.side-bar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    z-index: 4;
+    width: 300px;
+    height: 100%;
+    padding: .5rem 1rem;
+    box-shadow: 0 6px 12px rgba(107, 82, 82, 0.3);
+    background-color: rgb(210 191 191);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: ease 0.2s all;
+}
+.btnSetting {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right:20px
+}
+#closeSettings {
+    position: absolute;
+    right:15px
+
+}
+.btnSetting #openSettings {
+    margin-right:5px
+    
+}
+
+body.menu-open #body-overlay {
+    display: block;
+}
+
+body.menu-open .side-bar {
+    right: 0;
+}
+
+.border > div {
+    border:2px solid skyblue;
+    border-radius: 12px;
+}
+
+.localUser {
+    width: 400px;
+    aspect-ratio: 16/9;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    
+}
+
+.remoteUser {
+    width: 400px;
+    margin:20px;
+    aspect-ratio: 16/9;
+    position: relative;
+}
+
+.row {
+    display: flex;
+}
+.controls {
+    justify-content: space-evenly;
+    order:1;
+    padding: 5px;
+    margin-top:5px;
+    border:none 
+}
+
+.remoteUsers {
+    border-top: 1px dotted gray;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.hidden {
+    display: none;
+}
+.icon {
+    cursor: pointer;
+    width: 22px !important;
+}
+.icon:hover{
+   color:rgb(172, 159, 15);
+    transition: all ease-in-out 200ms;
+}
+
+.toast-close {
+    color: #1b1b1b !important
+}
+
+.userInfo {
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    z-index: 3;
+    color: white;
+    background: gray;
+    padding: 2px;
+    border-radius: 6px;
+}
+    </style>
 </head>
   <body>
     <div id="body-overlay"></div>
