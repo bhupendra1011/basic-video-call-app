@@ -1,7 +1,7 @@
 // import "./style.css";
 import AgoraRTC from "agora-rtc-sdk-ng";
 import { store as appStore, store } from "./store"
-import { toggleAudioMute, toggleVideoMute, callEnd, increaseUserCount, decreaseUserCount } from "./reducer"
+import { toggleAudioMute, toggleVideoMute, callEnd, increaseUserCount, decreaseUserCount, toggleCaption } from "./reducer"
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
 
@@ -16,8 +16,10 @@ const videoOff = document.querySelector("#video-off");
 const callOff = document.querySelector("#call-off");
 const share = document.querySelector("#share")
 const openSideBar = document.querySelector("#open-menu")
-const closeSideBar = document.querySelector("#closeSettings")
-
+const closeSideBar = document.querySelector("#closeSettings");
+const captionOn = document.querySelector("#caption");
+const captionOff = document.querySelector("#caption-off");
+const captionsContainer = document.querySelector(".captions")
 
 const appID = '392bdd4cf5da44db84328a29d247b405' // appID from console
 let channelName = ''
@@ -92,7 +94,7 @@ const showNotification = (text, callback = () => { }, duration = 3000) => {
  * returns unsunscribe to stop listening to store updates
  */
 const unsubscribe = appStore.subscribe(() => {
-    const { audioMuted, videoMuted, callActive, userCount } = store.getState().app
+    const { audioMuted, videoMuted, callActive, userCount, showCaption } = store.getState().app
     if (audioMuted) {
         mic.classList.add('hidden')
         micOff.classList.remove('hidden')
@@ -111,6 +113,17 @@ const unsubscribe = appStore.subscribe(() => {
         video.classList.remove('hidden')
         videoOff.classList.add('hidden')
         tracks.localVideoTrack.setEnabled(true)
+
+    }
+    if (showCaption) {
+        captionOff.classList.add('hidden');
+        captionOn.classList.remove('hidden');
+        captionsContainer.classList.remove('visibility')
+
+    } else {
+        captionOn.classList.add('hidden')
+        captionOff.classList.remove('hidden')
+        captionsContainer.classList.add('visibility')
 
     }
     if (!callActive) {
@@ -152,8 +165,9 @@ const addControlEvents = () => {
     callOff.addEventListener('click', handleCallEnd, false);
     share.addEventListener('click', handleShare, false)
     openSideBar.addEventListener("click", toggleMenu, false);
-    closeSideBar.addEventListener("click", toggleMenu, false)
-
+    closeSideBar.addEventListener("click", toggleMenu, false);
+    captionOn.addEventListener('click', handleToggleCaption, false);
+    captionOff.addEventListener('click', handleToggleCaption, false);
 }
 
 /**
@@ -188,6 +202,10 @@ const handleShare = () => {
     const url = new URL(window.location.href);
     url.searchParams.append('channelName', channelName);
     window.open(url, '_blank');
+}
+
+const handleToggleCaption = () => {
+    appStore.dispatch(toggleCaption())
 }
 
 

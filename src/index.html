@@ -90,6 +90,9 @@ body.menu-open .side-bar {
 .hidden {
     display: none;
 }
+.visibility {
+  visibility: hidden;
+}
 .icon {
     cursor: pointer;
     width: 22px !important;
@@ -113,6 +116,19 @@ body.menu-open .side-bar {
     padding: 2px;
     border-radius: 6px;
 }
+
+.localContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+ 
+}
+.captions {
+  flex-basis:300px;
+  padding: 8px;
+  border:1px solid brown;
+  border-radius:4px
+}
     </style>
 </head>
   <body>
@@ -130,7 +146,7 @@ body.menu-open .side-bar {
     <span>Local User:</span>
     
     <div>
-      
+      <div class="localContainer">
       <div class="localUser border" id="localUser">
           
         <div class="controls hidden row" id="controls">
@@ -138,14 +154,20 @@ body.menu-open .side-bar {
             <i id="mic-off" class="hidden icon" data-feather="mic-off" ></i>
             <i id="video" class="icon" data-feather="video"></i>
             <i id="video-off" class="hidden icon" data-feather="video-off" ></i>
+            <i id="caption" class="hidden icon" data-feather="eye" ></i>
+            <i id="caption-off" class=" icon" data-feather="eye-off"></i>
             <i class="hidden icon" data-feather="phone-call"></i>
             <i id="call-off" data-feather="phone-off" class="icon"   style ="color:red"></i>
             </div>
+         
       </div>
+      <div class="captions visibility">
+        <p>caption</p>
+      </div>
+    </div>
       <span>Remote Users:</span>
       <div class="remoteUsers row" id="remoteUsers">
-      
-        
+       
       </div>
     </div>
 

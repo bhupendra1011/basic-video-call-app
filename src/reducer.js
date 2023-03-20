@@ -4,6 +4,7 @@ const appInitialState = {
     videoMuted: false,
     audioMuted: false,
     callActive: true,
+    showCaption: false,
     userCount: 1,
 }
 
@@ -26,9 +27,13 @@ const appSlice = createSlice({
         },
         decreaseUserCount(state, action) {
             state.userCount--;
+        },
+        toggleCaption(state, action) {
+            state.showCaption = !state.showCaption;
+
         }
     }
 
 })
-export const { toggleAudioMute, toggleVideoMute, callEnd, increaseUserCount, decreaseUserCount } = appSlice.actions
+export const { toggleAudioMute, toggleVideoMute, callEnd, increaseUserCount, decreaseUserCount, toggleCaption } = appSlice.actions
 export default appSlice.reducer
